@@ -37,7 +37,13 @@ const UserSchema = new Schema(
     salary: {
         type: Number,
         required: true,
-  }},
+  },
+  isKyc:{
+    type: Boolean,
+    default:false
+
+  }
+},
   { timestamps: true }
 
 );

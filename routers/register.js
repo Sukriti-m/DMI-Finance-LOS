@@ -14,7 +14,8 @@ router.post("/", async (req, res) => {
       password,
       gender,
       salary,
-      address
+      address,
+      isKyc
     } = req.body;
     const userExist = await User.findOne({
       $or: [{ email}, { mobileNum }, { aadharNum }, { panNum}],
@@ -33,7 +34,8 @@ router.post("/", async (req, res) => {
       password,
       gender,
       salary,
-      address
+      address,
+      isKyc
     });
 
     // bcrypt password
@@ -46,7 +48,7 @@ router.post("/", async (req, res) => {
       id: saveUser._id,
     });
   } catch (error) {
-    res.status(400).send(`err ${error}`);
+    res.status(400).json({error});
   }
 });
 
