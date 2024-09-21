@@ -2,8 +2,61 @@ require("dotenv").config();
 const express = require("express");
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
-//const jwt = require("jsonwebtoken");
 const router = new express.Router();
+
+
+/**
+ * @swagger
+ * tags:
+ *   name: Login
+ *   description: User login APIs
+ */
+
+/**
+ * @swagger
+ * /login:
+ *   post:
+ *     summary: Login a user
+ *     tags: [Login]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               aadharNum:
+ *                 type: number
+ *                 example: 987654321098
+ *               password:
+ *                 type: string
+ *                 example: "SecurePass456"
+ *     responses:
+ *       200:
+ *         description: User logged in successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "User logged in successfully"
+ *       401:
+ *         description: User not registered or wrong password
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 msg:
+ *                   type: string
+ *                   example: "User not registered"
+ *       400:
+ *         description: Validation error
+ */
+
+
 
 // login route
 router.post("/", async (req, res) => {

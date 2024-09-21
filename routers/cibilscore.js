@@ -1,6 +1,39 @@
 const express = require("express");
 const router = new express.Router();
 
+/**
+ * @swagger
+ * tags:
+ *   name: CIBIL Score
+ *   description: API to generate random CIBIL scores
+ */
+
+/**
+ * @swagger
+ * /cibil-score:
+ *   get:
+ *     summary: Get a random CIBIL score
+ *     tags: [CIBIL Score]
+ *     responses:
+ *       200:
+ *         description: Successfully generated CIBIL score
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 score:
+ *                   type: integer
+ *                   example: 720
+ *                 category:
+ *                   type: string
+ *                   example: "Very Good"
+ *                 message:
+ *                   type: string
+ *                   example: "Your CIBIL score is 720, which is categorized as Very Good."
+ */
+
+
 const generateRandomCIBILScore = () => {
   return Math.floor(Math.random() * (900 - 300 + 1)) + 300;
 };
