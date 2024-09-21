@@ -3,6 +3,8 @@ const cookieParser = require("cookie-parser");
 const express = require("express");
 const loginRoute = require("./routers/login");
 const registerRoute = require("./routers/register");
+const cibilscoreRoute = require("./routers/cibilscore");
+
 // const feedbackIns = require("./router/feedback");
 // const addquestionRoute = require("./router/addquestion");
 // const answer = require("./router/answer");
@@ -42,7 +44,7 @@ app.use(cookieParser());
 
 app.use("/register", registerRoute);
 app.use("/login", loginRoute);
-
+app.use("/cibil-score", cibilscoreRoute );
 const port = process.env.PORT || 4200;
 app.listen(port, () => {
   console.log(`Server is running successfully on port : ${port}`);
